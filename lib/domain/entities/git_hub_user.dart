@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// сделал этот класс для возможности авторизации и записи в реальный репо, также для поиска юзеров на ГитХабе
 
 class GitHubUser {
   final String login;

@@ -56,7 +56,7 @@ class AppRepositoryImpl implements AppRepository {
   Future<List<Repo>> getRepos(String query) async {
     List data;
     final dio = Dio(options);
-    response = await dio.get('search/repositories?q=$query');
+    response = await dio.get('search/repositories?q=$query+in:name');
 
     response.statusCode == 200 ? data = response.data['items'] : data = [];
 

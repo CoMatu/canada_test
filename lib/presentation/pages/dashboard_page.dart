@@ -17,29 +17,38 @@ class DashboardPage extends StatelessWidget {
             children: <Widget>[
               Consumer<RepoProvider>(
                 builder: (context, provider, child) {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: provider.reposList.length + 1,
-                    itemBuilder: (BuildContext context, int index) {
-                      return index < provider.reposList.length
-                          ? Hero(
-                              tag: provider.reposList[index].hashCode,
-                              child: Card(
-                                child: ListTile(
-                                  onTap: () {
-                                    Navigator.pushNamed(context, '/details',
-                                        arguments: provider.reposList[index]);
-                                  },
-                                  title: Text(provider.reposList[index].name),
-                                ),
-                              ),
-                            )
-                          : SizedBox(
-                              height: 77.0,
-                            );
-                    },
-                  );
+                  return provider.reposList.isNotEmpty
+                      ? ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: provider.reposList.length + 1,
+                          itemBuilder: (BuildContext context, int index) {
+                            return index < provider.reposList.length
+                                ? Hero(
+                                    tag: provider.reposList[index].hashCode,
+                                    child: Card(
+                                      child: ListTile(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/details',
+                                              arguments:
+                                                  provider.reposList[index]);
+                                        },
+                                        title: Text(
+                                            provider.reposList[index].name),
+                                      ),
+                                    ),
+                                  )
+                                : SizedBox(
+                                    height: 77.0,
+                                  );
+                          },
+                        )
+                      : Center(
+                          child: Text(
+                          'Nothing found',
+                          style: Theme.of(context).textTheme.headline5,
+                        ));
                 },
               )
             ],
