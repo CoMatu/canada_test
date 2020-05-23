@@ -19,4 +19,11 @@ class RepoProvider extends ChangeNotifier {
     _repoList = [];
     notifyListeners();
   }
+
+  void updateRepo(Repo repo) {
+    _repoList.where((element) =>
+        element.hashCode == repo.hashCode ? _repoList.remove(element) : null);
+    _repoList.add(repo);
+    notifyListeners();
+  }
 }

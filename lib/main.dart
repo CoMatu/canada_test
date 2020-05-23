@@ -3,6 +3,7 @@ import 'package:hello_canada/domain/providers/repos_provider.dart';
 import 'package:hello_canada/domain/providers/user_provider.dart';
 import 'package:hello_canada/presentation/pages/add_repo_page.dart';
 import 'package:hello_canada/presentation/pages/dashboard_page.dart';
+import 'package:hello_canada/presentation/pages/edit_repo_page.dart';
 import 'package:hello_canada/presentation/pages/repo_detailes_page.dart';
 import 'package:hello_canada/presentation/pages/start_page.dart';
 import 'package:provider/provider.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/dashboard': (context) => DashboardPage(),
         '/details': (context) => RepoDetailesPage(),
         '/add_repo': (context) => AddRepoPage(),
+        '/edit_repo': (context) => EditRepoPage(),
       },
     );
   }

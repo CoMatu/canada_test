@@ -52,7 +52,11 @@ class RepoDetailesPage extends StatelessWidget {
                         ? Align(
                             alignment: Alignment.center,
                             child: OutlineButton(
-                                onPressed: () {}, child: Text('Edit Repo')),
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/edit_repo',
+                                      arguments: repo);
+                                },
+                                child: Text('Edit Repo')),
                           )
                         : Container()
                   ],
